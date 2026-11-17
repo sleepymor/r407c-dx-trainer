@@ -61,7 +61,7 @@ const ul=()=>{RD.forEach(([k,n,t])=>{});$("#l_oc").textContent=t("odps_cutout")+
 $("#oc").oninput=e=>{const v=parseFloat(e.target.value);if(v>0)OD.c=bk(v,"p")};$("#od").oninput=e=>{const v=parseFloat(e.target.value);if(v>0)OD.d=v};$("#orb").onclick=()=>{odT=0;odTrip=0;up()};
 document.querySelectorAll("#unit button").forEach(b=>b.onclick=()=>{imp=+(b.dataset.u=="im");document.querySelectorAll("#unit button").forEach(x=>x.classList.toggle("on",x==b));ul();up(1)});
 document.querySelectorAll("#mode button").forEach(b=>b.onclick=()=>{mode=b.dataset.m;document.querySelectorAll("#mode button").forEach(x=>x.classList.toggle("on",x==b));$("#simc").hidden=mode=="dx";$("#dxc").hidden=mode=="sim";sig="";up()});
-$("#langBtn").onclick=()=>setLang(currentLang==="en"?"de":"en");
+$("#langBtn").onclick=()=>setLang(currentLang==="en"?"id":"en");
 function ph(a,m){const X=h=>30+(h-200)/320*300,Y=p=>190-(Math.log(p)-Math.log(1.5))/(Math.log(32)-Math.log(1.5))*170,hf=t=>200+1.4*t+.0035*t*t,hg=t=>405+.3*t;let L="",V="",g="";
 for(let i=0;i<=30;i++){const p=Math.exp(Math.log(1.5)+(Math.log(30)-Math.log(1.5))*i/30);L+=(i?"L":"M")+X(hf(tB(p))).toFixed(1)+" "+Y(p).toFixed(1);V+=(i?"L":"M")+X(hg(tD(p))).toFixed(1)+" "+Y(p).toFixed(1)}
 [2,5,10,20,30].forEach(p=>g+=`<path d="M30 ${Y(p)}H335" stroke="var(--bd)" stroke-width=".7"/><text x="2" y="${Y(p)+3}" class="tx" font-size="8">${imp?Math.round(p*14.504):p}</text>`);
