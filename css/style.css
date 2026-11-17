@@ -1,0 +1,39 @@
+:root{--bg:#eef2f5;--cd:#fff;--tx:#13202c;--mu:#5d6d7c;--bd:#d3dce4;--ac:#0b64c4;--ok:#16874a;--wa:#c27800;--er:#d12f2f;--ro:#e8edf1;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="dark"]{--bg:#0f151b;--cd:#18212a;--tx:#e8eef3;--mu:#93a4b3;--bd:#2b3946;--ac:#5aa8ff;--ok:#42c27a;--wa:#f0b43c;--er:#ff6b6b;--ro:#222d38}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f151b;--cd:#18212a;--tx:#e8eef3;--mu:#93a4b3;--bd:#2b3946;--ac:#5aa8ff;--ok:#42c27a;--wa:#f0b43c;--er:#ff6b6b;--ro:#222d38}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 14px;flex-wrap:wrap}
+h1{font-size:18px;margin:0}h2{font-size:15px;margin:0 0 8px}
+main{padding:0 10px 24px;max-width:720px;margin:auto}
+.seg{display:flex;border:1px solid var(--bd);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:var(--cd);color:var(--tx);padding:7px 14px;font:inherit}
+.seg button.on{background:var(--ac);color:#fff}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:12px;margin-bottom:10px}
+svg{width:100%;height:auto;display:block}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.f{display:flex;flex-direction:column;font-size:12px;color:var(--mu)}
+.f input{font:inherit;font-size:15px;color:var(--tx);background:var(--cd);border:1px solid var(--bd);border-radius:6px;padding:6px;width:100%}
+.f input.ro{background:var(--ro)}
+.k{border:1px solid var(--bd);border-radius:8px;padding:6px 8px}.k b{font-size:17px;display:block}.k span{font-size:12px;color:var(--mu)}
+.k.ok{border-color:var(--ok)}.k.wa{border-color:var(--wa)}.k.er{border-color:var(--er)}
+.k.ok b{color:var(--ok)}.k.wa b{color:var(--wa)}.k.er b{color:var(--er)}
+.pr{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:6px}
+.pr button{white-space:nowrap;border:1px solid var(--bd);background:var(--cd);color:var(--tx);border-radius:16px;padding:5px 11px;font:inherit}
+.sl{display:grid;grid-template-columns:1fr auto;gap:0 8px;font-size:13px;margin-bottom:6px}.sl input{grid-column:1/3;width:100%}
+.ch{display:inline-block;border-radius:12px;padding:2px 10px;margin:2px 4px 2px 0;font-size:12px;border:1px solid}
+.ch.ok{color:var(--ok)}.ch.wa{color:var(--wa)}.ch.er{color:var(--er);font-weight:600}
+details{border:1px solid var(--bd);border-radius:8px;padding:8px;margin-bottom:6px}summary{font-weight:600}
+.bar{height:6px;background:var(--ro);border-radius:3px;margin:6px 0}.bar i{display:block;height:100%;background:var(--ac);border-radius:3px}
+ol{padding-left:0;list-style:none;margin:6px 0 0}li{margin:5px 0}li label{display:flex;gap:8px}
+.mu{color:var(--mu);font-size:12px}
+.bx{fill:var(--ro);stroke:var(--mu);stroke-width:1.5}.tx{fill:var(--tx);font-size:9px}.fn{fill:none;stroke:var(--mu);stroke-width:1.5}.fb{stroke:var(--mu);stroke-width:2}
+.sp{transform-box:fill-box;transform-origin:center;animation:sp .8s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+.fl{stroke:#fff;stroke-width:1.6;stroke-dasharray:2 9;fill:none;opacity:.85;animation:fl .8s linear infinite}@keyframes fl{to{stroke-dashoffset:-11}}
+.dr{animation:dr 1s linear infinite}@keyframes dr{from{transform:translateY(0);opacity:1}to{transform:translateY(16px);opacity:0}}
+.trip .fl,.trip .sp{animation-play-state:paused}.trip #comp{fill:#d12f2f}
+@media(prefers-reduced-motion:reduce){.fl,.sp,.dr{animation:none}}
+.f textarea{font:inherit;font-size:15px;color:var(--tx);background:var(--cd);border:1px solid var(--bd);border-radius:6px;padding:6px;width:100%}
+#rep{display:none}.rt{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:8px}.rt td{border:1px solid var(--bd);padding:3px 5px}
+.bt{border:1px solid var(--bd);background:var(--cd);color:var(--tx);border-radius:8px;padding:8px 12px;font:inherit;margin:0 6px 6px 0}.bt.p{background:var(--ac);color:#fff;border-color:var(--ac)}
+@media print{:root{--bg:#fff;--cd:#fff;--tx:#000;--bd:#999;--mu:#333}body>header,main>section:not(#repc),.noprint{display:none!important}#rep{display:block!important}#repc{border:0}}

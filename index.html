@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>R407C DX Trainer</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+<h1 data-i18n="title">R407C DX Trainer</h1>
+<div class="seg" id="mode">
+<button data-m="sim" class="on" data-i18n="mode_sim">Simulate</button>
+<button data-m="dx" data-i18n="mode_dx">Diagnose</button>
+</div>
+<div class="seg" id="unit">
+<button data-u="si" class="on" data-i18n="unit_si">bar °C</button>
+<button data-u="im" data-i18n="unit_im">psi °F</button>
+</div>
+<button id="langBtn" class="bt" style="margin-left:auto" data-i18n="lang_de">DE</button>
+</header>
+<main>
+<section class="card"><svg id="dia" viewBox="0 0 360 340"></svg><div id="alm"></div></section>
+<section class="card" id="simc">
+<h2 data-i18n="sim_create_fault">Create a fault</h2>
+<div class="pr" id="pr"></div>
+<p class="mu" data-i18n="sim_events_note">Events: pressure drops suddenly, then returns to normal.</p>
+<div class="pr" id="ev"></div>
+<div id="sl"></div>
+</section>
+<section class="card" id="dxc" hidden>
+<h2 data-i18n="sim_diagnose_mode">Diagnose mode</h2>
+<p class="mu" data-i18n="sim_dx_intro">Type your gauge and thermometer readings below. The values from your last simulation are the starting point.</p>
+</section>
+<section class="card">
+<h2 data-i18n="rd_title">Readings at each point</h2>
+<div class="grid" id="rd"></div>
+</section>
+<section class="card">
+<h2 data-i18n="calc_title">Calculated values</h2>
+<div class="grid" id="calc"></div>
+<p class="mu" data-i18n="calc_note">R407C is a zeotropic blend: superheat uses the dew point, subcooling uses the bubble point. The pressure model is approximate (about ±5%), so confirm with your manufacturer's PT chart.</p>
+</section>
+<section class="card">
+<h2 data-i18n="odps_title">ODPS: Kriwan DELTA-P II 22 S 635</h2>
+<p class="mu" data-i18n="odps_nameplate">Nameplate: supply 115/230 V AC 50/60 Hz, ambient -30 to +70 °C, relay 240 V AC max 2.5 A. It screws into the Dorin oil pump housing and opens its relay if oil differential pressure stays below the cut-out for the whole delay time. Defaults: 0.8 bar cut-out and 90 s delay, as set by your team. Cut-in is assumed to be cut-out + 0.32 bar. A shorter delay makes training faster.</p>
+<div class="grid">
+<label class="f"><span id="l_oc" data-i18n="odps_cutout"></span><input type="number" step="any" id="oc"></label>
+<label class="f"><span data-i18n="odps_delay">Delay (s)</span><input type="number" id="od" value="90"></label>
+</div>
+<p><button class="bt" id="orb" data-i18n="odps_reset">Reset ODPS</button></p>
+<p class="mu" id="ods"></p>
+</section>
+<section class="card">
+<h2 data-i18n="trend_title">Suction pressure trend</h2>
+<svg id="tr" viewBox="0 0 340 124"></svg>
+<p class="mu" id="evn" data-i18n="trend_start">Start an event above to watch a sudden low-pressure drop and the recovery.</p>
+</section>
+<section class="card">
+<h2 data-i18n="ph_title">P-h diagram</h2>
+<svg id="ph" viewBox="0 0 340 220"></svg>
+<p class="mu" data-i18n="ph_note">Solid: current cycle. Dashed grey: healthy cycle. Points 1 suction, 2 discharge, 3 liquid out, 4 after TXV.</p>
+</section>
+<section class="card">
+<h2 data-i18n="dg_title">Likely causes and checklist</h2>
+<div id="dg"></div>
+</section>
+<section class="card" id="repc">
+<h2 data-i18n="rep_title">Service report</h2>
+<div class="grid noprint">
+<label class="f"><span data-i18n="rep_tag">Unit tag or site</span><input id="rt"></label>
+<label class="f"><span data-i18n="rep_tech">Technician</span><input id="rn"></label>
+</div>
+<label class="f noprint"><span data-i18n="rep_notes">Notes</span><textarea id="rm" rows="2"></textarea></label>
+<p class="noprint"><button class="bt p" id="bp" data-i18n="btn_print">Print or save PDF</button><button class="bt" id="bc" data-i18n="btn_copy">Copy text</button></p>
+<div id="rep"></div>
+</section>
+</main>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
