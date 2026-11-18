@@ -4,23 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>R407C DX Trainer</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 <header>
 <h1 data-i18n="title">R407C DX Trainer</h1>
+<button id="navToggle" class="bt" aria-label="Menu" aria-expanded="false">☰</button>
+<div id="navControls">
 <div class="seg" id="mode">
 <button data-m="sim" class="on" data-i18n="mode_sim">Simulate</button>
 <button data-m="dx" data-i18n="mode_dx">Diagnose</button>
+<button data-m="challenge" data-i18n="mode_challenge">Challenge</button>
 </div>
 <div class="seg" id="unit">
 <button data-u="si" class="on" data-i18n="unit_si">bar °C</button>
 <button data-u="im" data-i18n="unit_im">psi °F</button>
 </div>
-<button id="langBtn" class="bt" style="margin-left:auto" data-i18n="lang_de">DE</button>
+<button id="themeBtn" class="bt" data-i18n="btn_theme">Dark / Light Theme</button>
+<button id="resetHealthyBtn" class="bt" data-i18n="btn_reset_healthy">Reset Healthy</button>
+<button id="langBtn" class="bt" data-i18n="lang_id">ID</button>
+</div>
 </header>
 <main>
-<section class="card"><svg id="dia" viewBox="0 0 360 340"></svg><div id="alm"></div></section>
+<section class="card"><svg id="dia" viewBox="0 0 360 340"></svg><div id="alm"></div><div id="svgBadges" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px"></div><div id="compInfo" style="margin-top:8px;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--cd);display:none"><h3 id="ciTitle" style="margin:0 0 6px;font-size:14px"></h3><p id="ciBody" class="mu" style="font-size:12px;margin:0"></p></div></section>
 <section class="card" id="simc">
 <h2 data-i18n="sim_create_fault">Create a fault</h2>
 <div class="pr" id="pr"></div>
@@ -31,6 +37,16 @@
 <section class="card" id="dxc" hidden>
 <h2 data-i18n="sim_diagnose_mode">Diagnose mode</h2>
 <p class="mu" data-i18n="sim_dx_intro">Type your gauge and thermometer readings below. The values from your last simulation are the starting point.</p>
+<div id="dxReadings"></div>
+</section>
+<section class="card" id="challengec" hidden>
+<h2 data-i18n="ch_title">Challenge / Exam Mode</h2>
+<p class="mu" id="chIntro" data-i18n="ch_intro"></p>
+<div id="chHidden" class="mu" data-i18n="ch_fault_hidden"></div>
+<div id="chDiagnosis" style="margin:10px 0"></div>
+<div id="chSteps" style="margin:10px 0"></div>
+<p><button class="bt p" id="chSubmit" data-i18n="ch_submit">Submit Diagnosis</button></p>
+<div id="chResult" style="margin-top:12px"></div>
 </section>
 <section class="card">
 <h2 data-i18n="rd_title">Readings at each point</h2>
@@ -48,7 +64,7 @@
 <label class="f"><span id="l_oc" data-i18n="odps_cutout"></span><input type="number" step="any" id="oc"></label>
 <label class="f"><span data-i18n="odps_delay">Delay (s)</span><input type="number" id="od" value="90"></label>
 </div>
-<p><button class="bt" id="orb" data-i18n="odps_reset">Reset ODPS</button></p>
+<p><button class="bt" id="orb" data-i18n="odps_reset">Reset ODPS</button> <button class="bt" id="otb" data-i18n="btn_test_odps">Test ODPS Delay</button></p>
 <p class="mu" id="ods"></p>
 </section>
 <section class="card">

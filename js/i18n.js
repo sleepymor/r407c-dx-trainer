@@ -4,6 +4,7 @@ const I18N = {
     title: "R407C DX Trainer",
     mode_sim: "Simulate",
     mode_dx: "Diagnose",
+    mode_challenge: "Challenge",
     unit_si: "bar °C",
     unit_im: "psi °F",
 
@@ -63,6 +64,7 @@ const I18N = {
     lbl_Toil: "5 Oil sump",
     lbl_dp: "5 Oil differential P (ODPS)",
     lbl_oil: "5 Oil level",
+    chk_nm: "Not measured",
 
     // units
     unit_bar: "bar",
@@ -114,6 +116,7 @@ const I18N = {
     sl_air: "Evaporator airflow",
     sl_wear: "Compressor valve wear",
     sl_oil: "Oil level",
+    sl_nc: "Non-condensables (air/N2)",
 
     // preset buttons
     preset_healthy: "Healthy",
@@ -128,6 +131,7 @@ const I18N = {
     preset_over: "Overcharge",
     preset_airfilter: "Dirty air filter",
     preset_evapfan: "Evap fan failed",
+    preset_nc: "Non-condensables (air/N2)",
 
     // events
     ev_ice: "Sudden drop: ice plug at TXV",
@@ -135,6 +139,29 @@ const I18N = {
     ev_sol: "Sudden drop: solenoid sticks",
     ev_running: "Event running: {name}…",
     ev_back: "Back to normal. Pattern: {hint}",
+
+    // challenge mode
+    ch_title: "Challenge / Exam Mode",
+    ch_intro: "A random fault has been created. Sliders are hidden. Diagnose the fault and pick 3 priority repair steps, then submit.",
+    ch_fault_hidden: "Fault hidden — diagnose from the readings above.",
+    ch_your_diagnosis: "Your diagnosis",
+    ch_priority_steps: "Priority repair steps (pick 3)",
+    ch_submit: "Submit Diagnosis",
+    ch_score: "Score",
+    ch_correct: "Correct diagnosis!",
+    ch_wrong: "Incorrect. The fault was: {fault}",
+    ch_technical: "Technical discussion",
+    ch_optional_sensor: "Optional / not measured",
+    ch_diag_healthy: "Healthy",
+    ch_step_0: "Leak-check, repair, evacuate and recharge",
+    ch_step_1: "Recover excess refrigerant, target SC 4–8 K",
+    ch_step_2: "Replace clogged filter drier",
+    ch_step_3: "Adjust or replace TXV (set SH 5–8 K)",
+    ch_step_4: "Clean condenser / restore fan airflow",
+    ch_step_5: "Repair or replace compressor",
+    ch_step_6: "Top up oil / fix oil return, reset ODPS",
+    ch_step_7: "Improve evaporator airflow / replace filter",
+    ch_step_8: "Replace sticking solenoid valve",
 
     // diagnosis causes (FX keys: leak, over, drier, txvc, txvo, cond, comp, air, oil, sol)
     fx_leak_title: "Low charge or refrigerant leak",
@@ -200,6 +227,11 @@ const I18N = {
     fx_sol_check1: "Check coil voltage, plunger and strainer.",
     fx_sol_check2: "Look for frost-back on the suction line and accumulator.",
     fx_sol_check3: "Reset SH to 5–8 K or replace the solenoid valve.",
+    fx_nc_title: "Non-condensables (air / nitrogen)",
+    fx_nc_desc: "Inerts accumulate in the condenser: head pressure and discharge temperature rise, condenser approach worsens, subcooling reads falsely normal/high, and discharge pressure fluctuates.",
+    fx_nc_check1: "Check for non-condensables with a gauge/top-temperature comparison.",
+    fx_nc_check2: "Recover refrigerant, evacuate and recharge.",
+    fx_nc_check3: "Rule out air introduced during poor service practices.",
 
     // report
     rep_h2: "R407C DX service report",
@@ -221,6 +253,9 @@ const I18N = {
     // controls
     btn_print: "Print or save PDF",
     btn_copy: "Copy text",
+    btn_theme: "Dark / Light Theme",
+    btn_reset_healthy: "Reset Healthy",
+    btn_test_odps: "Test ODPS Delay",
     lang_en: "EN",
     lang_id: "ID"
   },
@@ -229,6 +264,7 @@ const I18N = {
     title: "R407C DX Trainer",
     mode_sim: "Simulasi",
     mode_dx: "Diagnosa",
+    mode_challenge: "Tantangan",
     unit_si: "bar °C",
     unit_im: "psi °F",
 
@@ -288,6 +324,7 @@ const I18N = {
     lbl_Toil: "5 Sump minyak",
     lbl_dp: "5 Tekanan diferensial minyak (ODPS)",
     lbl_oil: "5 Level minyak",
+    chk_nm: "Tidak diukur",
 
     // units
     unit_bar: "bar",
@@ -353,6 +390,7 @@ const I18N = {
     preset_over: "Overcharge",
     preset_airfilter: "Filter udara kotor",
     preset_evapfan: "Kipas evaporator gagal",
+    preset_nc: "Non-kondensabel (udara/N2)",
 
     // events
     ev_ice: "Sudden drop: ice plug at TXV",
@@ -360,6 +398,29 @@ const I18N = {
     ev_sol: "Sudden drop: solenoid sticks",
     ev_running: "Event running: {name}…",
     ev_back: "Back to normal. Pattern: {hint}",
+
+    // challenge mode
+    ch_title: "Mode Tantangan / Ujian",
+    ch_intro: "Satu kerusakan acak telah dibuat. Slider disembunyikan. Diagnosis kerusakan dan pilih 3 langkah perbaikan prioritas, lalu kirim.",
+    ch_fault_hidden: "Kerusakan tersembunyi — diagnosis dari bacaan di atas.",
+    ch_your_diagnosis: "Diagnosis Anda",
+    ch_priority_steps: "Langkah perbaikan prioritas (pilih 3)",
+    ch_submit: "Kirim Diagnosis",
+    ch_score: "Skor",
+    ch_correct: "Diagnosis benar!",
+    ch_wrong: "Salah. Kerusakannya adalah: {fault}",
+    ch_technical: "Pembicaraan teknis",
+    ch_optional_sensor: "Opsional / tidak diukur",
+    ch_diag_healthy: "Sehat",
+    ch_step_0: "Periksa kebocoran, perbaiki, evakuasi dan isi ulang",
+    ch_step_1: "Ambil refrigeran berlebih, target SC 4–8 K",
+    ch_step_2: "Ganti filter drier yang tersumbat",
+    ch_step_3: "Atur atau ganti TXV (setel SH 5–8 K)",
+    ch_step_4: "Bersihkan kondensor / pulihkan aliran kipas",
+    ch_step_5: "Perbaiki atau ganti kompresor",
+    ch_step_6: "Tambah minyak / perbaiki return minyak, reset ODPS",
+    ch_step_7: "Perbaiki aliran udara evaporator / ganti filter",
+    ch_step_8: "Ganti solenoid yang macet",
 
     // diagnosis causes
     fx_leak_title: "Isian rendah atau bocor refrigernan",
@@ -385,6 +446,12 @@ const I18N = {
     fx_sol_check1: "Periksa tegangan coil, plunger dan strainer.",
     fx_sol_check2: "Perhatikan frost-back pada suction line dan accumulator.",
     fx_sol_check3: "Reset SH ke 5–8 K atau ganti solenoid valve.",
+    fx_nc_title: "Non-kondensabel (udara / nitrogen)",
+    fx_nc_desc: "Inersia menumpuk di kondensor: head pressure dan suhu discharge naik, kondensor approach memburuk, subcooling bacaan palsu normal/tinggi, dan tekanan discharge fluktuasi.",
+    fx_nc_check1: "Periksa non-kondensabel dengan bandingkan gauge dan suhu atas.",
+    fx_nc_check2: "Ambil refrigeran, evakuasi dan isi ulang.",
+    fx_nc_check3: "Sisakan udara yang masuk saat servis kurang baik.",
+
     fx_leak_check1: "Periksa kebocoran flare, sambungan, inti Schrader, drier dan fitting bulb TXV.",
     fx_leak_check2: "Cari noda minyak dan gelembung di sight glass.",
     fx_leak_check3: "Perbaiki, evakuasi di bawah 500 microns dan tahan vakum.",
@@ -446,6 +513,9 @@ const I18N = {
     // controls
     btn_print: "Cetak atau simpan PDF",
     btn_copy: "Salin teks",
+    btn_theme: "Tema Gelap / Terang",
+    btn_reset_healthy: "Reset Sehat",
+    btn_test_odps: "Uji Tunda ODPS",
     lang_en: "EN",
     lang_id: "ID"
   }
